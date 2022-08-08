@@ -151,7 +151,7 @@ cds_from_edt3 <- learn_graph(cds_from_edt3, use_partition = TRUE)
 cds_from_edt3 <- order_cells(cds_from_edt3)#Select Mesenchymal cells points in the middle and epithelial otherwise (in the surface) # plot trajectories colored by pseudotime
 plot_cells(cds= cds_from_edt3,color_cells_by = "pseudotime",show_trajectory_graph = TRUE)
 
-# Comare the above order to semi-pseudotime PCs:
+# Compare the above order to semi-pseudotime PCs:
 # https://broadinstitute.github.io/2019_scWorkshop/functional-pseudotime-analysis.html
 dput$pseudotime_PC1 <- rank(dput@reductions[["pca"]]@cell.embeddings[,1])  # rank cells by their PC1 score
 ggplot(as.data.frame(dput[[]]), aes(x = pseudotime_PC1, y = seurat_clusters, colour = seurat_clusters)) +geom_quasirandom(groupOnX = FALSE)
